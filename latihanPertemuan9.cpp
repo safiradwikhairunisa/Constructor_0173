@@ -19,7 +19,7 @@ class mahasiswa
     friend class dosen; //agar dosen bisa mengakses mahasiswa
 };
 
-class Dosen
+class dosen
 {
     private:
     string nama;
@@ -28,5 +28,13 @@ class Dosen
     float gaji;
 
     public:
-    Dosen(string nama, int nidn):nama(nama), nidn(nidn), pangkat("Asisten ahli"), gaji(0){}
+    dosen(string nama, int nidn):nama(nama), nidn(nidn), pangkat("Asisten ahli"), gaji(2000000){}
+
+    void berNilai(mahasiswa* m, float n)
+    {
+        m->nilai = n;
+    }
+    friend class staff; //agar staff bisa gaji dosen
+    friend class universitas; //universitas bisa akses gaji dosen
+    friend float melihatGajidosen(dosen* d);
 };
